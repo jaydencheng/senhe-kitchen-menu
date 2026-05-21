@@ -102,41 +102,9 @@
       opacity: 0.92;
     }
 
-    /* Language toggle */
-    .lang-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      padding: 18px 0 4px;
-      background: var(--card);
-    }
-    .lang-btn {
-      appearance: none;
-      border: 1.5px solid var(--rule);
-      background: transparent;
-      color: var(--ink-soft);
-      font-family: inherit;
-      font-weight: 600;
-      font-size: 13px;
-      padding: 7px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      letter-spacing: 0.04em;
-    }
-    .lang-btn[aria-pressed="true"] {
-      background: var(--brand);
-      border-color: var(--brand);
-      color: #FFF6E6;
-    }
-    .lang-btn:hover:not([aria-pressed="true"]) {
-      border-color: var(--brand);
-      color: var(--brand-dark);
-    }
-
     /* Menu body */
     .menu {
-      padding: 20px 28px 36px;
+      padding: 28px 28px 36px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 28px 32px;
@@ -148,18 +116,20 @@
     .section h2 {
       font-family: "Fraunces", serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 24px;
       color: var(--brand-dark);
-      margin: 0 0 4px;
+      margin: 0 0 2px;
       letter-spacing: 0.02em;
+      line-height: 1.15;
     }
     .section h2 .zh {
+      display: block;
       font-family: "Noto Sans TC", sans-serif;
-      font-weight: 700;
-      font-size: 14px;
+      font-weight: 500;
+      font-size: 12px;
       color: var(--ink-soft);
-      margin-left: 8px;
-      letter-spacing: 0.16em;
+      margin: 2px 0 0;
+      letter-spacing: 0.22em;
     }
     .section-rule {
       height: 2px;
@@ -171,36 +141,47 @@
     .item {
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: baseline;
-      gap: 10px;
-      padding: 9px 0;
+      align-items: start;
+      gap: 12px;
+      padding: 11px 0;
       border-bottom: 1px dashed var(--rule);
     }
     .item:last-child { border-bottom: none; }
     .name {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 3px;
+      min-width: 0;
     }
     .name .en {
       font-family: "Fraunces", serif;
-      font-weight: 500;
-      font-size: 16px;
+      font-weight: 600;
+      font-size: 17px;
       color: var(--ink);
-      line-height: 1.25;
+      line-height: 1.22;
+      letter-spacing: 0.005em;
+    }
+    .name .en small {
+      font-weight: 500;
+      font-size: 0.78em;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
     }
     .name .zh {
       font-family: "Noto Sans TC", sans-serif;
-      font-size: 12px;
+      font-weight: 500;
+      font-size: 11.5px;
       color: var(--ink-soft);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.18em;
+      line-height: 1.2;
     }
     .price {
       font-family: "Fraunces", serif;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
       color: var(--brand-dark);
       white-space: nowrap;
+      padding-top: 2px;
     }
     .price::before {
       content: "NT$";
@@ -230,30 +211,19 @@
       margin-bottom: 6px;
     }
 
-    /* English-only mode hides Chinese, and vice versa */
-    body[data-lang="en"] .zh { display: none; }
-    body[data-lang="zh"] .en { display: none; }
-    body[data-lang="zh"] .name .zh { font-size: 16px; color: var(--ink); }
-
     /* Print */
     @media print {
       body { background: white; padding: 0; }
       .shell { box-shadow: none; border: none; }
-      .lang-toggle { display: none; }
     }
   </style>
 </head>
-<body data-lang="en">
+<body>
   <main class="shell">
     <header class="header">
       <h1 class="brand-zh">森禾樂廚</h1>
       <div class="brand-en">Sen He Le Chu &middot; Taiwanese Kitchen</div>
     </header>
-
-    <div class="lang-toggle" role="group" aria-label="Language switcher">
-      <button class="lang-btn" data-lang-target="en" aria-pressed="true">English</button>
-      <button class="lang-btn" data-lang-target="zh" aria-pressed="false">中文</button>
-    </div>
 
     <section class="menu">
       <div class="section">
@@ -424,31 +394,10 @@
     </section>
 
     <footer class="footer">
-      <div class="note">Order ahead on LINE for faster pickup.</div>
-      <div>Prices in New Taiwan Dollars (NT$). Subject to change.</div>
+      <div class="note">Order ahead on LINE for faster pickup &middot; 加入 LINE 提前點餐</div>
+      <div>Prices in New Taiwan Dollars (NT$) &middot; Subject to change &middot; 價格如有變動以店內為準</div>
     </footer>
   </main>
 
-  <script>
-    (function () {
-      const buttons = document.querySelectorAll(".lang-btn");
-      const body = document.body;
-      const saved = localStorage.getItem("menu-lang");
-      if (saved === "zh" || saved === "en") body.dataset.lang = saved;
-
-      function apply(lang) {
-        body.dataset.lang = lang;
-        localStorage.setItem("menu-lang", lang);
-        buttons.forEach((b) => {
-          b.setAttribute("aria-pressed", b.dataset.langTarget === lang ? "true" : "false");
-        });
-      }
-
-      buttons.forEach((b) => {
-        b.setAttribute("aria-pressed", b.dataset.langTarget === body.dataset.lang ? "true" : "false");
-        b.addEventListener("click", () => apply(b.dataset.langTarget));
-      });
-    })();
-  </script>
 </body>
 </html>
