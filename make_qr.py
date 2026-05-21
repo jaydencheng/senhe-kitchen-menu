@@ -73,8 +73,8 @@ bbox = draw.textbbox((0, 0), title, font=title_font)
 tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
 draw.text(((canvas.size[0] - tw) / 2, (header_h - th) / 2 - 4), title, fill=PAPER, font=title_font)
 
-# "Scan for English Menu" caption
-caption = "SCAN FOR ENGLISH MENU"
+# Bilingual menu caption
+caption = "SCAN FOR BILINGUAL MENU"
 cw = draw.textlength(caption, font=sub_font)
 draw.text(((canvas.size[0] - cw) / 2, PAD_TOP + H + 40), caption, fill=INK, font=sub_font)
 
