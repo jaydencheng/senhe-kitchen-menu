@@ -139,10 +139,6 @@
     }
 
     .item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 16px;
       padding: 15px 0;
       border-bottom: 1px dashed var(--rule);
     }
@@ -175,23 +171,6 @@
       letter-spacing: 0.18em;
       line-height: 1.2;
     }
-    .price {
-      font-family: "Fraunces", serif;
-      font-weight: 700;
-      font-size: 27px;
-      color: var(--brand-dark);
-      white-space: nowrap;
-      padding-top: 2px;
-    }
-    .price::before {
-      content: "NT$";
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--ink-soft);
-      margin-right: 3px;
-      letter-spacing: 0.04em;
-    }
-
     /* Footer */
     .footer {
       padding: 26px 28px 32px;
@@ -235,56 +214,48 @@
             <span class="en">Braised Pork Bento</span>
             <span class="zh">魯肉便當</span>
           </div>
-          <div class="price">75</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Pork Chop Bento</span>
             <span class="zh">排骨便當</span>
           </div>
-          <div class="price">105</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Chicken Leg Bento</span>
             <span class="zh">香滷雞腿便當</span>
           </div>
-          <div class="price">115</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Crispy Fried Chicken Leg Bento</span>
             <span class="zh">酥炸雞腿便當</span>
           </div>
-          <div class="price">115</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Red Yeast Fish Fillet Bento</span>
             <span class="zh">紅糟魚排便當</span>
           </div>
-          <div class="price">100</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Sichuan Pepper Chicken Bento</span>
             <span class="zh">椒麻腿排便當</span>
           </div>
-          <div class="price">105</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Shrimp Roll Bento</span>
             <span class="zh">蝦捲便當</span>
           </div>
-          <div class="price">95</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Mixed Vegetable Bento</span>
             <span class="zh">合菜便當</span>
           </div>
-          <div class="price">75</div>
         </div>
       </div>
 
@@ -297,105 +268,91 @@
             <span class="en">Pork Chop</span>
             <span class="zh">排骨</span>
           </div>
-          <div class="price">65</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Chicken Leg</span>
             <span class="zh">滷雞腿</span>
           </div>
-          <div class="price">75</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Crispy Fried Chicken Leg</span>
             <span class="zh">炸雞腿</span>
           </div>
-          <div class="price">75</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Red Yeast Fish Fillet</span>
             <span class="zh">紅糟魚排</span>
           </div>
-          <div class="price">60</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Shrimp Roll</span>
             <span class="zh">蝦捲</span>
           </div>
-          <div class="price">50</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Pork Rice <small>(small)</small></span>
             <span class="zh">小魯肉飯</span>
           </div>
-          <div class="price">35</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Pork Rice <small>(large)</small></span>
             <span class="zh">大魯肉飯</span>
           </div>
-          <div class="price">45</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Steamed White Rice</span>
             <span class="zh">白飯</span>
           </div>
-          <div class="price">20</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Radish &amp; Pork Rib Soup</span>
             <span class="zh">蘿蔔排骨湯</span>
           </div>
-          <div class="price">50</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Radish &amp; Meatball Soup</span>
             <span class="zh">蘿蔔貢丸湯</span>
           </div>
-          <div class="price">40</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Cabbage</span>
             <span class="zh">白菜滷</span>
           </div>
-          <div class="price">50</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Blanched Seasonal Greens</span>
             <span class="zh">燙青菜</span>
           </div>
-          <div class="price">45</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Tofu</span>
             <span class="zh">滷三角豆腐</span>
           </div>
-          <div class="price">25</div>
         </div>
         <div class="item">
           <div class="name">
             <span class="en">Braised Egg</span>
             <span class="zh">滷蛋</span>
           </div>
-          <div class="price">15</div>
         </div>
       </div>
     </section>
 
     <footer class="footer">
       <div class="note">Order ahead on LINE for faster pickup &middot; 加入 LINE 提前點餐</div>
-      <div>Prices in New Taiwan Dollars (NT$) &middot; Subject to change &middot; 價格如有變動以店內為準</div>
+      <div>Please ask at the counter for current prices &middot; 價格請洽現場</div>
     </footer>
   </main>
 
